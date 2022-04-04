@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // event(new \App\Events\test());
+    event(new \App\Events\test('Hải')); // Truyền tham số vào trong () của event
     return view('welcome');
 });
 

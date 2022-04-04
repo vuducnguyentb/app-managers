@@ -6,6 +6,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Events\test;
+use App\Listeners\testListener;
+use function Illuminate\Events\queueable;
+use Illuminate\Support\Facades\Log;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +22,7 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        
     ];
 
     /**
@@ -27,6 +32,13 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Cách cách gọi Listener:
+        // Event::listen(
+        //     test::class, [testListener::class, 'handle']
+        // ); // gọi bằng mảng
+        Event::listen(test::class, testListener::class); // gọi trực tiếp class
+        // Event::listen(queueable(function (test $event) {
+        //     Log::info('hello');
+        // })); // khai báo trực tiếp function listener
     }
 }
