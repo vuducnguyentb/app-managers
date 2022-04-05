@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\account;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -14,15 +15,19 @@ class test
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $name; //khai báo tên cần truyền vào event
+    // public $name; //khai báo tên cần truyền vào event
+    public $name;
+    public $user;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, account $user)
     {
-        $this->name = $name; // gán name của event bằng tham số name truyền vào
+        // $this->name = $name; // gán name của event bằng tham số name truyền vào
+        $this->name = $name;
+        $this->user = $user; // sử dụng model account trong db để lấy dữ liệu
     }
 
     /**
