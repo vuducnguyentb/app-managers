@@ -33,3 +33,8 @@ Route::resource(
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/send-mail', [\App\Http\Controllers\SendEmailController::class, 'getSendEmail'])->name('getSendEmail');
+ 
+Route::post('/send-mail', [\App\Http\Controllers\SendEmailController::class, 'postSendEmail'])->name('postSendEmail');
+
