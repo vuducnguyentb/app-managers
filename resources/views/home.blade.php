@@ -16,6 +16,17 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+                <div>
+                    <ul class="list-group">
+                        @foreach ($article as $item)
+                            <li class="list-group-item"><a class="list-group-item list-group-item-action" href="#">{{$item->title}}</a></li>
+                        @endforeach
+                    </ul>
+                    <div>
+                        {{$article->links()}}
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

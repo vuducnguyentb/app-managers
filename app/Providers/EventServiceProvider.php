@@ -36,9 +36,9 @@ class EventServiceProvider extends ServiceProvider
         // Event::listen(
         //     test::class, [testListener::class, 'handle']
         // ); // gọi bằng mảng
-        Event::listen(test::class, testListener::class); // gọi trực tiếp class
-        // Event::listen(queueable(function (test $event) {
-        //     Log::info('hello');
-        // })); // khai báo trực tiếp function listener
+        // Event::listen(test::class, testListener::class); // gọi trực tiếp class
+        Event::listen(queueable(function (test $event) {
+            Log::info('hello');
+        })); // khai báo trực tiếp function listener
     }
 }
