@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,9 @@ Route::get('/products',[ProductController::class,'index']);
 Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
 Route::post('/products/store',[ProductController::class,'store'])->name('products.store');
 
+#sendmail
+Route::get('email', [EmailController::class,'sendEmail']);
+
 
 
 Route::middleware([
@@ -31,3 +35,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
