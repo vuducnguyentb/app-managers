@@ -27,7 +27,7 @@ class SendEmailAfterNewProduct
      */
     public function handle(NewProduct $event)
     {
-        // Tam dung 10 phut
+        // Tam dung 10 s
         sleep(3);
 //        dd($event->product->id . '.txt');
         $fileName = $event->product->id . '.txt';
