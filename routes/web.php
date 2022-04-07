@@ -34,7 +34,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/send-mail', [\App\Http\Controllers\SendEmailController::class, 'getSendEmail'])->name('getSendEmail');
+// Route::get('/send-mail', [\App\Http\Controllers\SendEmailController::class, 'getSendEmail'])->name('getSendEmail');
  
-Route::post('/send-mail', [\App\Http\Controllers\SendEmailController::class, 'postSendEmail'])->name('postSendEmail');
+// Route::post('/send-mail', [\App\Http\Controllers\SendEmailController::class, 'postSendEmail'])->name('postSendEmail');
+Route::get('/send-mail', [\App\Http\Controllers\SendMailController::class, 'GetSendEmail'])->name('GetSendEmail');
+// Route::post('/send-mail', [\App\Http\Controllers\SendMailController::class, 'PostSendEmail'])->name('PostSendEmail');
 
